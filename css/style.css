@@ -10,17 +10,25 @@ body {
     background-repeat: no-repeat;
 }
 
+/* HEADER - Black text on gray background */
 header {
-    background-color: #333;
-    color: black;
+    background-color: #333; /* Dark gray background */
+    color: black; /* Black text for "Collections" header */
     padding: 20px;
     text-align: center;
 }
 
+/* NAVIGATION LINKS - Black text */
 nav a {
-    color: black;
+    color: black; /* Black text for "Home" and "Staff" links */
     text-decoration: none;
     margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #555; /* Slightly lighter black on hover */
+    text-decoration: underline;
 }
 
 .columns {
@@ -36,9 +44,10 @@ nav a {
     border: 1px solid #ccc;
 }
 
+/* FOOTER - Black text on gray background */
 footer {
-    background-color: #333;
-    color: black;
+    background-color: #333; /* Dark gray background */
+    color: black; /* Black text for academic disclaimer */
     text-align: center;
     padding: 10px;
     position: fixed;
@@ -128,19 +137,4 @@ footer {
     padding: 0 20px 15px 20px;
     margin: 0;
     color: #666;
-}
-
-/* Make containers semi-transparent for better readability */
-header, footer, .column, .staff-member, .gallery-item {
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(2px);
-}
-
-/* Specific adjustments for white containers */
-.column {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.staff-member, .gallery-item {
-    background-color: rgba(255, 255, 255, 0.95);
 }
