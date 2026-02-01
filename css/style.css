@@ -129,3 +129,18 @@ footer {
     margin: 0;
     color: #666;
 }
+
+/* Make containers semi-transparent for better readability */
+header, footer, .column, .staff-member, .gallery-item {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+}
+
+/* Specific adjustments for white containers */
+.column {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.staff-member, .gallery-item {
+    background-color: rgba(255, 255, 255, 0.95);
+}
