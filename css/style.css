@@ -8,27 +8,30 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    color: #333; /* ADD THIS - fixes black text on dark background */
+    color: #333;
+    min-height: 100vh; /* ADDED */
+    display: flex; /* ADDED */
+    flex-direction: column; /* ADDED */
 }
 
-/* HEADER - Black text on gray background */
+/* HEADER - White text on gray background */
 header {
-    background-color: #333; /* Dark gray background */
-    color: white; /* CHANGED from black to white */
+    background-color: #333;
+    color: white;
     padding: 20px;
     text-align: center;
 }
 
 /* NAVIGATION LINKS - White text */
 nav a {
-    color: white; /* CHANGED from black to white */
+    color: white;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
 }
 
 nav a:hover {
-    color: #ccc; /* CHANGED from #555 to #ccc */
+    color: #ccc;
     text-decoration: underline;
 }
 
@@ -45,15 +48,15 @@ nav a:hover {
     border: 1px solid #ccc;
 }
 
-/* FOOTER - White text on gray background */
+/* FOOTER - CHANGED from fixed to normal */
 footer {
-    background-color: #333; /* Dark gray background */
-    color: white; /* CHANGED from black to white */
+    background-color: #333;
+    color: white;
     text-align: center;
-    padding: 10px;
-    position: fixed;
+    padding: 20px; /* Increased padding */
+    margin-top: 40px; /* Space above footer */
     width: 100%;
-    bottom: 0;
+    /* REMOVED: position: fixed; bottom: 0; */
 }
 
 /* Collections page styles */
@@ -97,16 +100,17 @@ footer {
 }
 
 /* ====================== */
-/* STAFF PAGE PERSONA STYLES - MOVED UP */
+/* STAFF PAGE PERSONA STYLES */
 /* ====================== */
 
 .staff-page {
     max-width: 1200px;
-    margin: 40px auto; /* CHANGED from 0 auto to 40px auto */
+    margin: 40px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.95); /* ADD THIS */
-    border-radius: 10px; /* ADD THIS */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ADD THIS */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    flex: 1; /* ADDED - pushes footer down */
 }
 
 .page-subtitle {
@@ -134,7 +138,7 @@ footer {
     display: flex;
     align-items: flex-start;
     margin-bottom: 60px;
-    background-color: white; /* CHANGED from rgba */
+    background-color: white;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -276,4 +280,3 @@ footer {
         font-size: 24px;
     }
 }
-
