@@ -9,31 +9,6 @@
     flex: 1;
 }
 
-.ai-disclaimer {
-    background-color: rgba(248, 248, 248, 0.95);
-    border-left: 4px solid #666;
-    padding: 20px;
-    margin-bottom: 40px;
-    border-radius: 0 8px 8px 0;
-}
-
-.ai-disclaimer h3 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.ai-disclaimer p {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-.ai-disclaimer strong {
-    color: #222;
-}
-
 .collection-section {
     margin-bottom: 60px;
 }
