@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Souvenir Shop - Museum Site</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <script src="../js/script.js" defer></script>
+    <script src="../js/shop.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Museum Souvenir Shop</h1>
+        <nav>
+            <a href="../index.html">Home</a> |
+            <a href="staff.html">Staff</a> |
+            <a href="collections.html">Collections</a> |
+            <a href="shop.html">Shop</a> |
+            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <main class="shop-page">
+        <div class="page-intro">
+            <h2>Bring a Piece of History Home</h2>
+            <p>Our souvenir shop features authentic replicas and inspired creations from our collections. Each item tells a unique story of human history and cultural heritage.</p>
+        </div>
+
+        <div class="shop-container">
+            <!-- Item 1 -->
+            <div class="souvenir-item">
+                <div class="item-id">item001</div>
+                <div class="item-image-container">
+                    <img src="../images/shop-starbone.jpg" 
+                         alt="Starbone Fossil Replica" 
+                         class="item-image"
+                         data-item="item001"
+                         data-title="Starbone Fossil"
+                         data-price="$89.99"
+                         data-description="From the Celestial Collection. Material: Resin composite with mineral flecks. Location: Discovered in the Mariana Trench. Purpose: Ritual object used in ancient star-navigation ceremonies.">
+                    <div class="tooltip">"Replica of the Starbone Fossil, said to have fallen from celestial oceans"</div>
+                </div>
+                
+                <div class="item-content">
+                    <h3 class="item-title">Starbone Fossil</h3>
+                    <p class="item-description">
+                        From the Celestial Collection. Material: Resin composite with mineral flecks. 
+                        Location: Discovered in the Mariana Trench. Purpose: Ritual object used in ancient star-navigation ceremonies.
+                    </p>
+                    <div class="item-price">$89.99</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('item001')">
+                        Add Starbone Fossil to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="souvenir-item">
+                <div class="item-id">item002</div>
+                <div class="item-image-container">
+                    <img src="../images/shop-incense.jpg" 
+                         alt="Coral Queen Incense Set" 
+                         class="item-image"
+                         data-item="item002"
+                         data-title="Coral Queen Incense"
+                         data-price="$34.99"
+                         data-description="From the Ritual Collection. Material: Sea salt, dried algae, and essential oils. Location: Based on artifacts from the Pacific Abyssal Plain. Purpose: Used in purification rituals by Deep Ur priests.">
+                    <div class="tooltip">"Scent of the Coral Queen incense, crafted in the style of Deep Ur priests"</div>
+                </div>
+                
+                <div class="item-content">
+                    <h3 class="item-title">Coral Queen Incense</h3>
+                    <p class="item-description">
+                        From the Ritual Collection. Material: Sea salt, dried algae, and essential oils. 
+                        Location: Based on artifacts from the Pacific Abyssal Plain. Purpose: Used in purification rituals.
+                    </p>
+                    <div class="item-price">$34.99</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('item002')">
+                        Add Coral Queen Incense to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="souvenir-item">
+                <div class="item-id">item003</div>
+                <div class="item-image-container">
+                    <img src="../images/shop-pearl.jpg" 
+                         alt="Abyssal Pearl Pendant" 
+                         class="item-image"
+                         data-item="item003"
+                         data-title="Abyssal Pearl Pendant"
+                         data-price="$149.99"
+                         data-description="From the Jewelry Collection. Material: Cultured pearl with sterling silver setting. Location: Inspired by deep-sea oyster beds. Purpose: Worn as protective talismans by ancient divers.">
+                    <div class="tooltip">"Pearls formed in the eternal darkness, said to hold abyssal memories"</div>
+                </div>
+                
+                <div class="item-content">
+                    <h3 class="item-title">Abyssal Pearl Pendant</h3>
+                    <p class="item-description">
+                        From the Jewelry Collection. Material: Cultured pearl with silver setting. 
+                        Location: Inspired by deep-sea oyster beds. Purpose: Worn as protective talismans by ancient divers.
+                    </p>
+                    <div class="item-price">$149.99</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('item003')">
+                        Add Abyssal Pearl Pendant to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="souvenir-item">
+                <div class="item-id">item004</div>
+                <div class="item-image-container">
+                    <img src="../images/shop-compass.jpg" 
+                         alt="Nautilus Navigator Compass" 
+                         class="item-image"
+                         data-item="item004"
+                         data-title="Nautilus Navigator"
+                         data-price="$199.99"
+                         data-description="From the Navigation Collection. Material: Brass and glass. Location: Replica of instruments found in sunken exploration vessels. Purpose: Used for deep-sea navigation.">
+                    <div class="tooltip">"Navigator's compass modeled after the golden ratio of the nautilus shell"</div>
+                </div>
+                
+                <div class="item-content">
+                    <h3 class="item-title">Nautilus Navigator</h3>
+                    <p class="item-description">
+                        From the Navigation Collection. Material: Brass and glass. 
+                        Location: Replica of instruments found in sunken exploration vessels. Purpose: Used for deep-sea navigation.
+                    </p>
+                    <div class="item-price">$199.99</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('item004')">
+                        Add Nautilus Navigator to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modalImage" src="" alt="" class="modal-image">
+            <div class="modal-details">
+                <h2 id="modalTitle"></h2>
+                <div id="modalPrice" class="modal-price"></div>
+                <p id="modalDescription"></p>
+                <button id="modalAddToCart" class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>This is a fictitious website created purely for academic purposes.</p>
+        <p><em>All souvenir items are museum-quality replicas. Proceeds support archaeological research and preservation.</em></p>
+    </footer>
+</body>
+</html>
