@@ -6,51 +6,428 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Collections - Museum Site</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/collections.css">
     <script src="../js/script.js" defer></script>
+    <script src="../js/collections.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Collections</h1>
-       <nav>
-    <a href="../index.html">Home</a> |
-    <a href="staff.html">Staff</a> |
-    <a href="shop.html">Shop</a> |
-    <a href="#archeology">Archeology</a> |
-    <a href="#anthropology">Anthropology</a> |
-    <a href="#history">History</a>
-</nav>
+        <h1>Museum Collections</h1>
+        <nav>
+            <a href="../index.html">Home</a> |
+            <a href="staff.html">Staff</a> |
+            <a href="collections.html">Collections</a> |
+            <a href="shop.html">Shop</a> |
+            <button onclick="showSection('archaeology')">Archaeology</button> |
+            <button onclick="showSection('anthropology')">Anthropology</button>
+        </nav>
     </header>
 
-    <main class="gallery-container">
-        <h2>Current Exhibitions</h2>
-        
-        <div class="gallery-item">
-            <img src="../images/gallery1.jpg" alt="Main Gallery Hall">
-            <h3>Main Gallery Hall</h3>
-            <p>Featuring classical art from the Renaissance period</p>
+    <main class="collections-page">
+        <div class="ai-disclaimer">
+            <h3>About This Content</h3>
+            <p><strong>AI-Assisted Creation Statement:</strong> The content in this gallery was entirely created by AI under human direction. It was then curated, reviewed and edited by a human before being published.</p>
+            <p><em>This is a fictitious museum created purely for academic purposes. All artifacts are imaginary.</em></p>
         </div>
-        
-        <div class="gallery-item">
-            <img src="../images/gallery2.jpg" alt="Contemporary Art Wing">
-            <h3>Contemporary Art Wing</h3>
-            <p>Modern and abstract works from 20th century artists</p>
-        </div>
-        
-        <div class="gallery-item">
-            <img src="../images/gallery3.jpg" alt="Ancient History Exhibit">
-            <h3>Ancient History Exhibit</h3>
-            <p>Artifacts and sculptures from ancient civilizations</p>
-        </div>
-        
-        <div class="gallery-item">
-            <img src="../images/gallery4.jpg" alt="Modern Masters Collection">
-            <h3>Modern Masters Collection</h3>
-            <p>Works by Picasso, Monet, and Van Gogh</p>
-        </div>
-    </main>
 
-    <footer>
-        <p>This is a fictitious website created purely for academic purposes.</p>
-    </footer>
-</body>
-</html>
+        <!-- ARCHAEOLOGY SECTION -->
+        <section id="archaeology" class="collection-section">
+            <h2 class="section-title">Archaeology Collection</h2>
+            <p class="section-intro">Artifacts and objects from ancient civilizations, revealing material culture through excavation and analysis.</p>
+            
+            <!-- Item 1 -->
+            <div class="artifact">
+                <div class="artifact-image">
+                    <img src="../images/collections/obsidian-spearhead.jpg" alt="Obsidian spearhead half-buried in soil">
+                </div>
+                <div class="artifact-data">
+                    <h3>Obsidian Ritual Spearhead</h3>
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <h4>Name</h4>
+                            <p>Obsidian Ritual Spearhead</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Material</h4>
+                            <p>Volcanic glass (obsidian)</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Size/Weight/Shape</h4>
+                            <p>18cm length, 450g, leaf-shaped blade</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Estimated Age</h4>
+                            <p>3,200 years ± 50 years (carbon dating)</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Preservation State</h4>
+                            <p>Partial - blade only, shaft missing</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Location Found</h4>
+                            <p>Site ALP-7, Andean highlands, Peru</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Likely Purpose</h4>
+                            <p>Ceremonial/ritual weapon</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Evidence of Use</h4>
+                            <p>No combat wear, ritual polish on edges</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Manufacture Clues</h4>
+                            <p>Pressure flaking, bifacial reduction</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Found With</h4>
+                            <p>Ceremonial altar stones, charcoal remains</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Burial/Habitat Context</h4>
+                            <p>Ritual platform at mountain summit</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Symbolism</h4>
+                            <p>Sun iconography etched on one face</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Comparison</h4>
+                            <p>Similar to Chavín culture ritual blades</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Additional Notes</h4>
+                            <p>Blood residue analysis shows animal, not human, blood</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="artifact">
+                <div class="artifact-image">
+                    <img src="../images/collections/clay-tablet.jpg" alt="Cuneiform clay tablet with wedge-shaped markings">
+                </div>
+                <div class="artifact-data">
+                    <h3>Sumerian Administrative Tablet</h3>
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <h4>Name</h4>
+                            <p>Sumerian Administrative Tablet</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Material</h4>
+                            <p>Sun-dried clay</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Size/Weight/Shape</h4>
+                            <p>8cm × 6cm × 2.5cm, 180g, rectangular tablet</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Estimated Age</h4>
+                            <p>4,100 years (Ur III period)</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Preservation State</h4>
+                            <p>Complete, slight edge damage</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Location Found</h4>
+                            <p>Tell al-Muqayyar, ancient Ur, Iraq</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Likely Purpose</h4>
+                            <p>Administrative record keeping</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Evidence of Use</h4>
+                            <p>Finger impressions on reverse</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Manufacture Clues</h4>
+                            <p>Clay smoothed with wet hand, reed stylus marks</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Found With</h4>
+                            <p>Archive room with 200+ similar tablets</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Burial/Habitat Context</h4>
+                            <p>Administrative building, Room 7</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Symbolism</h4>
+                            <p>Cylinder seal impression of temple</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Comparison</h4>
+                            <p>Standard Ur III administrative format</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Additional Notes</h4>
+                            <p>Records barley distribution to temple workers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="artifact">
+                <div class="artifact-image">
+                    <img src="../images/collections/roman-bracelet.jpg" alt="Roman silver bracelet with intricate filigree work">
+                </div>
+                <div class="artifact-data">
+                    <h3>Roman Silver Bracelet</h3>
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <h4>Name</h4>
+                            <p>Roman Silver Bracelet</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Material</h4>
+                            <p>Silver with gold filigree</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Size/Weight/Shape</h4>
+                            <p>6.5cm diameter, 45g, serpent design</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Estimated Age</h4>
+                            <p>1,800 years (2nd century AD)</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Preservation State</h4>
+                            <p>Excellent, minor tarnish</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Location Found</h4>
+                            <p>Villa rustica, Pompeii, Italy</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Likely Purpose</h4>
+                            <p>Personal adornment, status symbol</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Evidence of Use</h4>
+                            <p>Wear patterns on interior surface</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Manufacture Clues</h4>
+                            <p>Lost-wax casting, hand-applied filigree</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Found With</h4>
+                            <p>Jewelry box containing 12 other pieces</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Burial/Habitat Context</h4>
+                            <p>Upper-class residence, women's quarters</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Symbolism</h4>
+                            <p>Serpent motif represents protection</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Comparison</h4>
+                            <p>Similar to Herculaneum jewelry finds</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Additional Notes</h4>
+                            <p>Hallmarked "M·AEL·CAR" - maker's mark</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANTHROPOLOGY SECTION (hidden by default) -->
+        <section id="anthropology" class="collection-section" style="display:none;">
+            <h2 class="section-title">Anthropology Collection</h2>
+            <p class="section-intro">Cultural artifacts and human remains providing insight into social practices, beliefs, and daily life across cultures.</p>
+            
+            <!-- Item 4 -->
+            <div class="artifact">
+                <div class="artifact-image">
+                    <img src="../images/collections/shaman-mask.jpg" alt="Wooden shaman mask with shell inlays">
+                </div>
+                <div class="artifact-data">
+                    <h3>Pacific Northwest Shaman's Mask</h3>
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <h4>Name</h4>
+                            <p>Pacific Northwest Shaman's Mask</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Material</h4>
+                            <p>Cedar wood, abalone shell, human hair</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Size/Weight/Shape</h4>
+                            <p>30cm × 25cm, 800g, oval face covering</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Estimated Age</h4>
+                            <p>200-250 years (late 18th century)</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Preservation State</h4>
+                            <p>Good, some insect damage to back</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Location Found</h4>
+                            <p>Longhouse, Haida Gwaii, Canada</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Likely Purpose</h4>
+                            <p>Ritual ceremonies, spirit invocation</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Evidence of Use</h4>
+                            <p>Soot deposits around eye holes</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Manufacture Clues</h4>
+                            <p>Adze marks visible, shell inlay precision</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Found With</h4>
+                            <p>Rattles, ceremonial robes, medicine bag</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Burial/Habitat Context</h4>
+                            <p>Sacred bundle in shaman's alcove</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Symbolism</h4>
+                            <p>Raven imagery - transformer figure</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Comparison</h4>
+                            <p>Similar to Tlingit transformation masks</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Additional Notes</h4>
+                            <p>DNA analysis of hair matches local population</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="artifact">
+                <div class="artifact-image">
+                    <img src="../images/collections/textile-fragment.jpg" alt="Andean textile fragment with geometric patterns">
+                </div>
+                <div class="artifact-data">
+                    <h3>Andean Ceremonial Textile Fragment</h3>
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <h4>Name</h4>
+                            <p>Andean Ceremonial Textile Fragment</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Material</h4>
+                            <p>Alpaca wool, cotton, natural dyes</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Size/Weight/Shape</h4>
+                            <p>40cm × 30cm, 120g, rectangular fragment</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Estimated Age</h4>
+                            <p>1,000 years (Wari culture)</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Preservation State</h4>
+                            <p>Partial, well-preserved colors</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Location Found</h4>
+                            <p>Ceremonial cache, Huari, Peru</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Likely Purpose</h4>
+                            <p>Ceremonial garment or wall hanging</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Evidence of Use</h4>
+                            <p>Folded crease patterns, no wear</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Manufacture Clues</h4>
+                            <p>Backstrap loom, 30 threads/cm density</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Found With</h4>
+                            <p>Other textile fragments, spondylus shells</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Burial/Habitat Context</h4>
+                            <p>Ritual offering bundle</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Symbolism</h4>
+                            <p>Stepped fret pattern - mountains/water</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Comparison</h4>
+                            <p>Identical to Wari elite textiles</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Additional Notes</h4>
+                            <p>Cochineal red, indigo blue identified</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="artifact">
+                <div class="artifact-image">
+                    <img src="../images/collections/healing-bowl.jpg" alt="Carved wooden healing bowl with medicinal residue">
+                </div>
+                <div class="artifact-data">
+                    <h3>African Healing Ritual Bowl</h3>
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <h4>Name</h4>
+                            <p>African Healing Ritual Bowl</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Material</h4>
+                            <p>Ironwood, medicinal resins</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Size/Weight/Shape</h4>
+                            <p>25cm diameter, 900g, shallow bowl</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Estimated Age</h4>
+                            <p>150-200 years (19th century)</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Preservation State</h4>
+                            <p>Excellent, deep patina</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Location Found</h4>
+                            <p>Healer's compound, Ghana</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Likely Purpose</h4>
+                            <p>Medicinal preparation, divination</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Evidence of Use</h4>
+                            <p>Multiple resin layers, grinding marks</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Manufacture Clues</h4>
+                            <p>Hand-carved, adze and knife marks</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Found With</h4>
+                            <p>Herb bundles, divination bones</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Burial/Habitat
