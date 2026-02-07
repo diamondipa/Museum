@@ -125,30 +125,31 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
+
 // Item data for reference (not used in current implementation but available for Phase 2)
 const itemDatabase = {
     'item001': {
-        title: 'Starbone Fossil',
-        price: 89.99,
-        description: 'From the Celestial Collection. Material: Resin composite with mineral flecks. Location: Discovered in the Mariana Trench. Purpose: Ritual object used in ancient star-navigation ceremonies. Believed to have fallen from celestial oceans during the Great Alignment.',
-        collection: 'Celestial Collection'
+        title: 'Ammonite Fossil',
+        price: 49.99,
+        description: 'From our Geological Collection. 100 million years old. Found in Madagascar. Ammonites were prehistoric cephalopods related to modern squids and nautiluses. Perfect fossilization shows intricate chamber details.',
+        collection: 'Geological Collection'
     },
     'item002': {
-        title: 'Coral Queen Incense',
-        price: 34.99,
-        description: 'From the Ritual Collection. Material: Sea salt, dried algae, and essential oils. Location: Based on artifacts from the Pacific Abyssal Plain. Purpose: Used in purification rituals by Deep Ur priests. Each set includes 12 incense cones and a ceramic burner.',
-        collection: 'Ritual Collection'
+        title: 'Roman Terra Sigillata Fragment',
+        price: 29.99,
+        description: 'From our Classical Archaeology Collection. 1st century AD Roman pottery. Found in Pompeii excavation. Features characteristic red gloss finish with maker\'s stamp. Authentic museum-quality replica.',
+        collection: 'Classical Archaeology Collection'
     },
     'item003': {
-        title: 'Abyssal Pearl Pendant',
-        price: 149.99,
-        description: 'From the Jewelry Collection. Material: Cultured pearl with sterling silver setting. Location: Inspired by deep-sea oyster beds. Purpose: Worn as protective talismans by ancient divers. Each pearl is unique, formed under intense pressure in complete darkness.',
-        collection: 'Jewelry Collection'
+        title: 'Athenian Owl Tetradrachm Replica',
+        price: 24.99,
+        description: 'From our Numismatics Collection. Accurate reproduction of 5th century BC Athenian silver coin. Features Athena on obverse, iconic owl on reverse. Struck from pewter with antique silver finish. Includes display case.',
+        collection: 'Numismatics Collection'
     },
     'item004': {
-        title: 'Nautilus Navigator',
-        price: 199.99,
-        description: 'From the Navigation Collection. Material: Brass and glass. Location: Replica of instruments found in sunken exploration vessels. Purpose: Used for deep-sea navigation. Features the golden ratio spiral of the nautilus shell for precise directional measurement.',
-        collection: 'Navigation Collection'
+        title: 'Anasazi Pottery Fragment',
+        price: 39.99,
+        description: 'From our Southwestern Archaeology Collection. 12th century Ancestral Puebloan pottery. Found in Mesa Verde, Colorado. Black-on-white geometric design. Authentic sherd mounted in display frame with documentation.',
+        collection: 'Southwestern Archaeology Collection'
     }
 };
