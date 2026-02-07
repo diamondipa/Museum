@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/collections.css">
     <script src="../js/script.js" defer></script>
-    <script src="../js/collections.js" defer></script>
 </head>
 <body>
     <header>
@@ -18,18 +17,12 @@
             <a href="staff.html">Staff</a> |
             <a href="collections.html">Collections</a> |
             <a href="shop.html">Shop</a> |
-            <button onclick="showSection('archaeology')">Archaeology</button> |
-            <button onclick="showSection('anthropology')">Anthropology</button>
+            <button onclick="showSection('archaeology')" class="nav-button">Archaeology</button> |
+            <button onclick="showSection('anthropology')" class="nav-button">Anthropology</button>
         </nav>
     </header>
 
     <main class="collections-page">
-        <div class="ai-disclaimer">
-            <h3>About This Content</h3>
-            <p><strong>AI-Assisted Creation Statement:</strong> The content in this gallery was entirely created by AI under human direction. It was then curated, reviewed and edited by a human before being published.</p>
-            <p><em>This is a fictitious museum created purely for academic purposes. All artifacts are imaginary.</em></p>
-        </div>
-
         <!-- ARCHAEOLOGY SECTION -->
         <section id="archaeology" class="collection-section">
             <h2 class="section-title">Archaeology Collection</h2>
@@ -38,7 +31,7 @@
             <!-- Item 1 -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/collections/obsidian-spearhead.jpg" alt="Obsidian spearhead half-buried in soil">
+                    <img src="../images/obsidian-spearhead.jpg" alt="Obsidian spearhead half-buried in soil">
                 </div>
                 <div class="artifact-data">
                     <h3>Obsidian Ritual Spearhead</h3>
@@ -106,7 +99,7 @@
             <!-- Item 2 -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/collections/clay-tablet.jpg" alt="Cuneiform clay tablet with wedge-shaped markings">
+                    <img src="../images/clay-tablet.jpg" alt="Cuneiform clay tablet with wedge-shaped markings">
                 </div>
                 <div class="artifact-data">
                     <h3>Sumerian Administrative Tablet</h3>
@@ -174,7 +167,7 @@
             <!-- Item 3 -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/collections/roman-bracelet.jpg" alt="Roman silver bracelet with intricate filigree work">
+                    <img src="../images/roman-bracelet.jpg" alt="Roman silver bracelet with intricate filigree work">
                 </div>
                 <div class="artifact-data">
                     <h3>Roman Silver Bracelet</h3>
@@ -248,7 +241,7 @@
             <!-- Item 4 -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/collections/shaman-mask.jpg" alt="Wooden shaman mask with shell inlays">
+                    <img src="../images/shaman-mask.jpg" alt="Wooden shaman mask with shell inlays">
                 </div>
                 <div class="artifact-data">
                     <h3>Pacific Northwest Shaman's Mask</h3>
@@ -316,7 +309,7 @@
             <!-- Item 5 -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/collections/textile-fragment.jpg" alt="Andean textile fragment with geometric patterns">
+                    <img src="../images/textile-fragment.jpg" alt="Andean textile fragment with geometric patterns">
                 </div>
                 <div class="artifact-data">
                     <h3>Andean Ceremonial Textile Fragment</h3>
@@ -384,7 +377,7 @@
             <!-- Item 6 -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/collections/healing-bowl.jpg" alt="Carved wooden healing bowl with medicinal residue">
+                    <img src="../images/healing-bowl.jpg" alt="Carved wooden healing bowl with medicinal residue">
                 </div>
                 <div class="artifact-data">
                     <h3>African Healing Ritual Bowl</h3>
@@ -430,4 +423,63 @@
                             <p>Herb bundles, divination bones</p>
                         </div>
                         <div class="metadata-item">
-                            <h4>Burial/Habitat
+                            <h4>Burial/Habitat Context</h4>
+                            <p>Active healer's workshop</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Symbolism</h4>
+                            <p>Spiral patterns representing healing journey</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Comparison</h4>
+                            <p>Similar to Akan ritual objects</p>
+                        </div>
+                        <div class="metadata-item">
+                            <h4>Additional Notes</h4>
+                            <p>Residue analysis shows multiple plant compounds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>This is a fictitious website created purely for academic purposes.</p>
+    </footer>
+
+    <script>
+        // Function to show selected section and hide others
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.collection-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+            
+            // Update button styles
+            const buttons = document.querySelectorAll('.nav-button');
+            buttons.forEach(button => {
+                if (button.getAttribute('onclick').includes(sectionId)) {
+                    button.style.backgroundColor = '#555';
+                    button.style.color = 'white';
+                } else {
+                    button.style.backgroundColor = '';
+                    button.style.color = '';
+                }
+            });
+        }
+        
+        // Initialize: Show archaeology section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('archaeology');
+        });
+    </script>
+</body>
+</html>
