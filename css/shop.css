@@ -1,33 +1,401 @@
-/* ====================== SHOPPING CART ASSIGNMENT ADDITIONS ====================== */
+.shop-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.shop-page .page-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.shop-page .page-intro h2 {
+    color: #222;
+    font-size: 28px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.shop-page .page-intro p {
+    color: #555;
+    font-size: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Shop Container Grid */
+.shop-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Souvenir Item Card */
+.souvenir-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.souvenir-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.item-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.item-image:hover {
+    transform: scale(1.05);
+}
 
 /* Qty Badge */
 .qty-badge {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #0066cc;
+    top: 15px;
+    right: 15px;
+    background-color: #c00;
     color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 25px;
+    font-size: 13px;
     font-weight: bold;
     z-index: 10;
     display: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    border: 1px solid white;
+    letter-spacing: 0.5px;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: white;
+    padding: 12px;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.item-image-container:hover .tooltip {
+    opacity: 1;
+}
+
+.item-id {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(51, 51, 51, 0.85);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.souvenir-item:hover .item-id {
+    opacity: 1;
+}
+
+.item-content {
+    padding: 25px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    color: #222;
+    font-size: 20px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.item-description {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.item-price {
+    color: #0066cc;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.add-to-cart-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0066cc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,102,204,0.3);
 }
 
 /* View Cart Button */
 #viewCartBtn {
-    background: none;
+    background-color: #0066cc;
     border: none;
     color: white;
     cursor: pointer;
-    font-size: inherit;
-    padding: 0;
+    font-size: 14px;
+    padding: 8px 16px;
     font-family: Arial, sans-serif;
-    text-decoration: underline;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-left: 15px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 #viewCartBtn:hover {
-    color: #ccc;
+    background-color: #0052a3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Hide the old cart text link */
+nav a[href="cart.html"] {
+    display: none;
+}
+
+/* Modal Styles - COMPLETELY REDESIGNED */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    overflow: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 750px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    position: relative;
+    animation: slideUp 0.4s ease;
+    overflow: hidden;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2010;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.modal-close:hover {
+    background-color: rgba(0,0,0,0.8);
+    transform: scale(1.1);
+    color: white;
+    text-decoration: none;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    background-color: #222;
+    border-bottom: 1px solid #333;
+}
+
+.modal-details {
+    padding: 30px;
+}
+
+.modal-details h2 {
+    color: #222;
+    font-size: 28px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.modal-price {
+    color: #0066cc;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.modal-details p {
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+#modalAddToCart {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+#modalAddToCart:hover {
+    background-color: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,102,204,0.4);
+}
+
+/* Cart link in navigation - hidden */
+nav a[href="cart.html"] {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shop-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .modal-image {
+        max-height: 300px;
+    }
+    
+    .modal-details {
+        padding: 20px;
+    }
+    
+    .modal-details h2 {
+        font-size: 24px;
+    }
+    
+    .modal-price {
+        font-size: 26px;
+    }
+    
+    #viewCartBtn {
+        padding: 6px 12px;
+        font-size: 13px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .item-image-container {
+        height: 220px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 15% auto;
+    }
+    
+    .modal-image {
+        max-height: 250px;
+    }
+    
+    .modal-details {
+        padding: 18px;
+    }
+    
+    .modal-details h2 {
+        font-size: 22px;
+    }
 }
