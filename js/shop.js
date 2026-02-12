@@ -22,9 +22,9 @@ function writeCart(cart) {
 function updateCartCount() {
     const cart = readCart();
     const totalItems = cart.reduce((total, item) => total + (item.qty || 1), 0);
-    const cartCountElement = document.getElementById('cart-count');
-    if (cartCountElement) {
-        cartCountElement.textContent = totalItems;
+    const viewCartBtn = document.getElementById('viewCartBtn');
+    if (viewCartBtn) {
+        viewCartBtn.textContent = `VIEW CART (${totalItems})`;
     }
 }
 
@@ -53,20 +53,22 @@ function addToCart(btn) {
         const badge = card.querySelector('.qty-badge');
         if (badge) {
             const item = cart.find(it => it.id === id);
-            badge.textContent = item ? `Qty: ${item.qty}` : '';
-            badge.style.display = 'inline-block';
+            badge.textContent = item ? `${item.qty}` : '';
+            badge.style.display = item ? 'inline-block' : 'none';
         }
     }
 
     // Visual feedback on button
     const originalText = btn.textContent;
-    btn.textContent = '✓ Added!';
-    btn.style.backgroundColor = '#0066cc';
+    btn.textContent = '✓ ADDED!';
+    btn.style.backgroundColor = '#00a36c';
+    btn.style.transform = 'scale(0.98)';
     
     setTimeout(() => {
         btn.textContent = originalText;
         btn.style.backgroundColor = '';
-    }, 1500);
+        btn.style.transform = '';
+    }, 1000);
 }
 
 // ====================== MODAL FUNCTIONALITY ======================
@@ -93,7 +95,7 @@ function openModal(itemId) {
         closeModal();
     };
     
-    modal.style.display = 'flex';
+    modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
@@ -115,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const badge = card.querySelector('.qty-badge');
             const item = cart.find(it => it.id === id);
             if (badge) {
-                badge.textContent = item ? `Qty: ${item.qty}` : '';
+                badge.textContent = item ? `${item.qty}` : '';
                 badge.style.display = item ? 'inline-block' : 'none';
             }
         }
