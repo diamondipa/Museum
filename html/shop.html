@@ -18,6 +18,7 @@
             <a href="staff.html">Staff</a> |
             <a href="collections.html">Collections</a> |
             <a href="shop.html">Shop</a> |
+            <button onclick="location.href='cart.html'" id="viewCartBtn" class="nav-button">View Cart</button> |
             <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
         </nav>
     </header>
@@ -41,6 +42,7 @@
                          data-price="$49.99"
                          data-description="From our Geological Collection. 100 million years old. Found in Madagascar. Ammonites were prehistoric cephalopods related to modern squids and nautiluses. Perfect fossilization shows intricate chamber details.">
                     <div class="tooltip">"A spiral memory from the ancient seas"</div>
+                    <span class="qty-badge" aria-live="polite"></span>
                 </div>
                 
                 <div class="item-content">
@@ -50,7 +52,12 @@
                         Ammonites were prehistoric cephalopods related to modern squids and nautiluses.
                     </p>
                     <div class="item-price">$49.99</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('item001')">
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart(this)"
+                        data-id="item001"
+                        data-name="Ammonite Fossil"
+                        data-price="49.99"
+                        data-image="../images/shop-ammonite.jpg">
                         Add Ammonite Fossil to Cart
                     </button>
                 </div>
@@ -68,6 +75,7 @@
                          data-price="$29.99"
                          data-description="From our Classical Archaeology Collection. 1st century AD Roman pottery. Found in Pompeii excavation. Features characteristic red gloss finish with maker's stamp. Authentic museum-quality replica.">
                     <div class="tooltip">"A whisper from Pompeii's last days"</div>
+                    <span class="qty-badge" aria-live="polite"></span>
                 </div>
                 
                 <div class="item-content">
@@ -77,7 +85,12 @@
                         Found in Pompeii. Features characteristic red gloss finish.
                     </p>
                     <div class="item-price">$29.99</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('item002')">
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart(this)"
+                        data-id="item002"
+                        data-name="Roman Terra Sigillata Fragment"
+                        data-price="29.99"
+                        data-image="../images/shop-romanpottery.jpg">
                         Add Roman Pottery Fragment to Cart
                     </button>
                 </div>
@@ -95,6 +108,7 @@
                          data-price="$24.99"
                          data-description="From our Numismatics Collection. Accurate reproduction of 5th century BC Athenian silver coin. Features Athena on obverse, iconic owl on reverse. Struck from pewter with antique silver finish. Includes display case.">
                     <div class="tooltip">"The currency of classical democracy"</div>
+                    <span class="qty-badge" aria-live="polite"></span>
                 </div>
                 
                 <div class="item-content">
@@ -104,7 +118,12 @@
                         Features Athena and the iconic owl.
                     </p>
                     <div class="item-price">$24.99</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('item003')">
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart(this)"
+                        data-id="item003"
+                        data-name="Athenian Owl Tetradrachm Replica"
+                        data-price="24.99"
+                        data-image="../images/shop-atheniancoin.jpg">
                         Add Athenian Coin Replica to Cart
                     </button>
                 </div>
@@ -122,6 +141,7 @@
                          data-price="$39.99"
                          data-description="From our Southwestern Archaeology Collection. 12th century Ancestral Puebloan pottery. Found in Mesa Verde, Colorado. Black-on-white geometric design. Authentic sherd mounted in display frame with documentation.">
                     <div class="tooltip">"Patterns of the cliff dwellers"</div>
+                    <span class="qty-badge" aria-live="polite"></span>
                 </div>
                 
                 <div class="item-content">
@@ -131,7 +151,12 @@
                         Found in Mesa Verde. Black-on-white geometric design.
                     </p>
                     <div class="item-price">$39.99</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('item004')">
+                    <button class="add-to-cart-btn"
+                        onclick="addToCart(this)"
+                        data-id="item004"
+                        data-name="Anasazi Pottery Fragment"
+                        data-price="39.99"
+                        data-image="../images/shop-anasazi.jpg">
                         Add Anasazi Pottery to Cart
                     </button>
                 </div>
