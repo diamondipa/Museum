@@ -7,7 +7,8 @@
     <title>Collections - Museum Site</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/collections.css">
-    <script src="../js/script.js" defer></script>
+    <link rel="stylesheet" href="../css/collections-modal.css">
+    <script src="../js/collections.js" defer></script>
 </head>
 <body>
     <header>
@@ -18,20 +19,26 @@
             <a href="collections.html">Collections</a> |
             <a href="shop.html">Shop</a> |
             <button onclick="showSection('archaeology')" class="nav-button">Archaeology</button> |
-            <button onclick="showSection('anthropology')" class="nav-button">Anthropology</button>
+            <button onclick="showSection('anthropology')" class="nav-button">Anthropology</button> |
+            <button onclick="showSection('histories')" class="nav-button">Histories</button>
         </nav>
     </header>
 
     <main class="collections-page">
+        <!-- CLICK INSTRUCTION -->
+        <div class="click-instruction">
+            <p>Click on any artifact image to view its interpretive modal.</p>
+        </div>
+
         <!-- ARCHAEOLOGY SECTION -->
         <section id="archaeology" class="collection-section">
             <h2 class="section-title">Archaeology Collection</h2>
             <p class="section-intro">Artifacts and objects from ancient civilizations, revealing material culture through excavation and analysis.</p>
             
-            <!-- Item 1 -->
+            <!-- Item 1: Obsidian Ritual Spearhead -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/obsidian-spearhead.jpg" alt="Obsidian spearhead half-buried in soil">
+                    <img src="../images/collections/obsidian-spearhead.jpg" alt="Obsidian spearhead half-buried in soil" class="open-modal" data-modal-target="#modal-text-spearhead">
                 </div>
                 <div class="artifact-data">
                     <h3>Obsidian Ritual Spearhead</h3>
@@ -96,10 +103,10 @@
                 </div>
             </div>
 
-            <!-- Item 2 -->
+            <!-- Item 2: Sumerian Administrative Tablet -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/clay-tablet.jpg" alt="Cuneiform clay tablet with wedge-shaped markings">
+                    <img src="../images/collections/clay-tablet.jpg" alt="Cuneiform clay tablet with wedge-shaped markings" class="open-modal" data-modal-target="#modal-text-tablet">
                 </div>
                 <div class="artifact-data">
                     <h3>Sumerian Administrative Tablet</h3>
@@ -164,10 +171,10 @@
                 </div>
             </div>
 
-            <!-- Item 3 -->
+            <!-- Item 3: Roman Silver Bracelet -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/roman-bracelet.jpg" alt="Roman silver bracelet with intricate filigree work">
+                    <img src="../images/collections/roman-bracelet.jpg" alt="Roman silver bracelet with intricate filigree work" class="open-modal" data-modal-target="#modal-text-bracelet">
                 </div>
                 <div class="artifact-data">
                     <h3>Roman Silver Bracelet</h3>
@@ -238,10 +245,10 @@
             <h2 class="section-title">Anthropology Collection</h2>
             <p class="section-intro">Cultural artifacts and human remains providing insight into social practices, beliefs, and daily life across cultures.</p>
             
-            <!-- Item 4 -->
+            <!-- Item 4: Pacific Northwest Shaman's Mask -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/shaman-mask.jpg" alt="Wooden shaman mask with shell inlays">
+                    <img src="../images/collections/shaman-mask.jpg" alt="Wooden shaman mask with shell inlays" class="open-modal" data-modal-target="#modal-text-mask">
                 </div>
                 <div class="artifact-data">
                     <h3>Pacific Northwest Shaman's Mask</h3>
@@ -306,10 +313,10 @@
                 </div>
             </div>
 
-            <!-- Item 5 -->
+            <!-- Item 5: Andean Ceremonial Textile Fragment -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/textile-fragment.jpg" alt="Andean textile fragment with geometric patterns">
+                    <img src="../images/collections/textile-fragment.jpg" alt="Andean textile fragment with geometric patterns" class="open-modal" data-modal-target="#modal-text-textile">
                 </div>
                 <div class="artifact-data">
                     <h3>Andean Ceremonial Textile Fragment</h3>
@@ -374,10 +381,10 @@
                 </div>
             </div>
 
-            <!-- Item 6 -->
+            <!-- Item 6: African Healing Ritual Bowl -->
             <div class="artifact">
                 <div class="artifact-image">
-                    <img src="../images/healing-bowl.jpg" alt="Carved wooden healing bowl with medicinal residue">
+                    <img src="../images/collections/healing-bowl.jpg" alt="Carved wooden healing bowl with medicinal residue" class="open-modal" data-modal-target="#modal-text-bowl">
                 </div>
                 <div class="artifact-data">
                     <h3>African Healing Ritual Bowl</h3>
@@ -442,44 +449,242 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <p>This is a fictitious website created purely for academic purposes.</p>
-    </footer>
-
-    <script>
-        // Function to show selected section and hide others
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.collection-section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
+        <!-- HISTORIES SECTION -->
+        <section id="histories" class="collection-section" style="display:none;">
+            <h2 class="section-title">Histories: Exhibit Labels</h2>
+            <p class="section-intro">Museum-style interpretive labels for each artifact, curated by Dr. John Chen, Chief Interpretation Officer.</p>
             
-            // Show the selected section
-            const selectedSection = document.getElementById(sectionId);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
-            }
+            <!-- History 1: Obsidian Ritual Spearhead -->
+            <div class="history-item">
+                <div class="history-image">
+                    <img src="../images/collections/obsidian-spearhead.jpg" alt="Obsidian ritual spearhead from Andean highlands">
+                </div>
+                <div class="history-content">
+                    <h3>Obsidian Ritual Spearhead</h3>
+                    <div class="history-metadata">
+                        <p><strong>Culture:</strong> Chavin, Andean</p>
+                        <p><strong>Date:</strong> 1200-800 BCE</p>
+                        <p><strong>Material:</strong> Obsidian (volcanic glass)</p>
+                        <p><strong>Dimensions:</strong> 18 cm length, 450 g</p>
+                        <p><strong>Location Found:</strong> Site ALP-7, Peru, 4,200 m elevation</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Interpretation</h4>
+                        <p>This blade was made to give away. At 4,200 meters, on a platform built to hold the sky, someone placed this spearhead among stones stained by fire. They deposited it, an intentional act of leaving behind. The distinction matters.</p>
+                        <p>Across the Andes, apu, mountain spirits, are animate, powerful, hungry. They require feeding. The obsidian, born of volcanic fire, returned to the heights. The sun, etched into stone, faced the sky. This was reciprocity: gift for gift, substance for sustenance.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Facts</h4>
+                        <p>Material sourced from Quispisisa obsidian quarry, 300 km distant, indicating long-distance trade or pilgrimage. Pressure flaking technique produced precise, symmetrical bifacial reduction. Edge surfaces exhibit intentional polish, not combat wear. Sun iconography, circle with radiating lines, incised on one face. Found in association with burnt camelid bone; blood residue confirms Lama glama. No human blood present. Radiocarbon dating of associated charcoal: 3,200 ± 50 BP.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Comparative Notes</h4>
+                        <p>Stylistically consistent with Chavin ceremonial obsidian work from the north highlands, particularly offerings recovered from Kotosh and La Galgada. However, the ALP-7 specimen is distinguished by its solitary deposition, not a cache but a singular, deliberate placement.</p>
+                    </div>
+                    
+                    <div class="history-section caution">
+                        <h4>Cautionary Note on Interpretation</h4>
+                        <p>We cannot know what words accompanied this blade. We cannot reconstruct the theology that animated it. Andean religious practice was not static, nor was it uniform. To call this an offering is our term, not theirs. We use it with humility.</p>
+                    </div>
+                    
+                    <div class="history-section courtesy">
+                        <h4>On Display Courtesy Of</h4>
+                        <p>The Peruvian Ministry of Culture, Museo Nacional de Arqueologia, Antropologia e Historia del Peru, and the Andean Highland Archaeological Survey Project.</p>
+                    </div>
+                </div>
+            </div>
             
-            // Update button styles
-            const buttons = document.querySelectorAll('.nav-button');
-            buttons.forEach(button => {
-                if (button.getAttribute('onclick').includes(sectionId)) {
-                    button.style.backgroundColor = '#555';
-                    button.style.color = 'white';
-                } else {
-                    button.style.backgroundColor = '';
-                    button.style.color = '';
-                }
-            });
-        }
-        
-        // Initialize: Show archaeology section by default
-        document.addEventListener('DOMContentLoaded', function() {
-            showSection('archaeology');
-        });
-    </script>
-</body>
-</html>
+            <!-- History 2: Sumerian Administrative Tablet -->
+            <div class="history-item">
+                <div class="history-image">
+                    <img src="../images/collections/clay-tablet.jpg" alt="Sumerian cuneiform clay tablet">
+                </div>
+                <div class="history-content">
+                    <h3>Sumerian Administrative Tablet</h3>
+                    <div class="history-metadata">
+                        <p><strong>Culture:</strong> Sumerian, Ur III period</p>
+                        <p><strong>Date:</strong> 4,100 years BP</p>
+                        <p><strong>Material:</strong> Sun-dried clay</p>
+                        <p><strong>Dimensions:</strong> 8cm x 6cm x 2.5cm</p>
+                        <p><strong>Location Found:</strong> Tell al-Muqayyar, ancient Ur, Iraq</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Interpretation</h4>
+                        <p>This tablet holds 4,100 years of silence. The wedges pressed into clay were once alive, spoken by scribes who moved reeds through mud with practiced hands. They recorded barley, temple workers, the economy of the sacred. This is not poetry. It is accounting. And yet, it is also something more.</p>
+                        <p>The cylinder seal impression of a temple tells us this transaction was witnessed by gods. The finger impressions on the reverse are the scribe's signature, as personal as a photograph. We do not know their name. But we know they were left-handed, pressed too hard on the lower corner, and worked quickly before the clay dried.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Facts</h4>
+                        <p>Found in Room 7 of an administrative building at Ur, among 200+ tablets forming an archive. Records barley distribution to temple workers. Manufacture: clay smoothed with wet hand, inscribed with reed stylus. Finger impressions preserved on reverse. Cylinder seal impression depicts Inanna's temple. Complete preservation with only minor edge damage.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Comparative Notes</h4>
+                        <p>Standard Ur III administrative format, paralleled in collections at the British Museum (BM 129450) and Penn Museum (CBS 10487). Distinctive seal impression matches examples attributed to the temple of Inanna at Uruk.</p>
+                    </div>
+                    
+                    <div class="history-section caution">
+                        <h4>Cautionary Note on Interpretation</h4>
+                        <p>We read cuneiform but we do not hear the language. The emotional tone, the urgency or boredom of the scribe, the weight of the transaction on the workers who received this barley—these are lost. We reconstruct numbers, not lives.</p>
+                    </div>
+                    
+                    <div class="history-section courtesy">
+                        <h4>On Display Courtesy Of</h4>
+                        <p>The Iraq Museum, Baghdad, and the Penn Museum Ur of the Chaldees Project.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- History 3: Roman Silver Bracelet -->
+            <div class="history-item">
+                <div class="history-image">
+                    <img src="../images/collections/roman-bracelet.jpg" alt="Roman silver bracelet with serpent design">
+                </div>
+                <div class="history-content">
+                    <h3>Roman Silver Bracelet</h3>
+                    <div class="history-metadata">
+                        <p><strong>Culture:</strong> Roman, Imperial period</p>
+                        <p><strong>Date:</strong> 2nd century AD</p>
+                        <p><strong>Material:</strong> Silver with gold filigree</p>
+                        <p><strong>Dimensions:</strong> 6.5cm diameter, 45g</p>
+                        <p><strong>Location Found:</strong> Villa rustica, Pompeii, Italy</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Interpretation</h4>
+                        <p>This bracelet remembers a wrist. The interior is worn smooth, not from polishing but from skin, from years of movement, from the pulse of a woman who wore it daily. She lived in a villa outside Pompeii, in rooms that caught the afternoon sun. She had twelve other pieces in her jewelry box. This one she wore most.</p>
+                        <p>The serpent biting its tail is ouroboros, the Roman symbol of eternity, protection, rebirth. She may have worn it as an amulet against evil, or simply because it was beautiful. We cannot separate these motives. Romans did not try.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Facts</h4>
+                        <p>Lost-wax casting with hand-applied gold filigree. Hallmarked "M·AEL·CAR" - likely Marcus Aelius Carus, documented silversmith in Pompeii catalogues. Wear patterns on interior surface consistent with 5-10 years of regular wear. Found in jewelry box with 12 other pieces in women's quarters of upper-class residence. Serpent motif (ouroboros) represents protection, eternity, and imperial cult symbolism.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Comparative Notes</h4>
+                        <p>Nearly identical examples recovered from Herculaneum (MANN 12634) and the Boscoreale Treasure (Louvre BJ 1928). Maker's mark matches workshop identified in Regio VII, Pompeii, destroyed 79 AD.</p>
+                    </div>
+                    
+                    <div class="history-section caution">
+                        <h4>Cautionary Note on Interpretation</h4>
+                        <p>We call her "the woman of the villa." We do not know her name, her status, whether she was wife or freedwoman or daughter. The bracelet outlived her memory. We restore her presence through inference, which is not the same as knowing.</p>
+                    </div>
+                    
+                    <div class="history-section courtesy">
+                        <h4>On Display Courtesy Of</h4>
+                        <p>The National Archaeological Museum of Naples, Italy, and the Pompeii Archaeological Park.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- History 4: Pacific Northwest Shaman's Mask -->
+            <div class="history-item">
+                <div class="history-image">
+                    <img src="../images/collections/shaman-mask.jpg" alt="Haida raven transformation mask">
+                </div>
+                <div class="history-content">
+                    <h3>Pacific Northwest Shaman's Mask</h3>
+                    <div class="history-metadata">
+                        <p><strong>Culture:</strong> Haida, Pacific Northwest Coast</p>
+                        <p><strong>Date:</strong> Late 18th century</p>
+                        <p><strong>Material:</strong> Cedar wood, abalone shell, human hair</p>
+                        <p><strong>Dimensions:</strong> 30 cm x 25 cm</p>
+                        <p><strong>Location Found:</strong> Longhouse, Haida Gwaii, Canada</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Interpretation</h4>
+                        <p>This mask is a visitor. In Haida cosmology, Raven is the transformer, trickster, creator, the one who stole the sun and released the first humans from a clamshell. When the shaman placed this mask over their face, they did not represent Raven. They became Raven. The boundary between human and spirit, performer and ancestor, dissolved.</p>
+                        <p>The soot that darkens the eye openings is physical evidence of this transformation. It accumulated during ceremonies conducted by firelight, in longhouses where the smoke carried prayers upward. The mask saw what the shaman saw: worlds intersecting.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Facts</h4>
+                        <p>Adze marks visible on interior surface confirm hand-carving using traditional tools. Abalone shell inlay shifts color with viewer movement; Haida artists understood light as alive. Human hair attached to crown; DNA analysis confirms Haida ancestry. Found bundled with rattles, ceremonial robes, and medicine bag, a complete ceremonial kit. Insect damage to reverse indicates respectful storage, not neglect.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Comparative Notes</h4>
+                        <p>While stylistically similar to Tlingit transformation masks, this example exhibits distinct Haida characteristics: more deeply carved form lines, higher-relief abalone inlay, and specific Raven iconography associated with Haida origin stories.</p>
+                    </div>
+                    
+                    <div class="history-section caution">
+                        <h4>Cautionary Note on Interpretation</h4>
+                        <p>This mask is a sacred object. Its power does not derive from museum interpretation but from Haida knowledge systems that predate this institution. We offer interpretations, not definitive meanings. The mask ultimately speaks for itself and for those who continue its songs.</p>
+                    </div>
+                    
+                    <div class="history-section courtesy">
+                        <h4>On Display Courtesy Of</h4>
+                        <p>The Haida Gwaii Museum, in collaboration with the Council of the Haida Nation and the Museum Repatriation Partnership Committee.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- History 5: Andean Ceremonial Textile Fragment -->
+            <div class="history-item">
+                <div class="history-image">
+                    <img src="../images/collections/textile-fragment.jpg" alt="Wari textile fragment with geometric patterns">
+                </div>
+                <div class="history-content">
+                    <h3>Andean Ceremonial Textile Fragment</h3>
+                    <div class="history-metadata">
+                        <p><strong>Culture:</strong> Wari, Andean</p>
+                        <p><strong>Date:</strong> 1,000 years BP</p>
+                        <p><strong>Material:</strong> Alpaca wool, cotton, natural dyes</p>
+                        <p><strong>Dimensions:</strong> 40cm x 30cm</p>
+                        <p><strong>Location Found:</strong> Ceremonial cache, Huari, Peru</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Interpretation</h4>
+                        <p>This textile was never worn out. It was folded with intention, placed in a ceramic vessel with spondylus shells, and buried as an offering. The stepped fret pattern, repeated across the fragment, represents the Andean concept of tinku: the meeting of opposites, mountain and water, earth and sky, human and divine.</p>
+                        <p>The weaver achieved 30 threads per centimeter, a density that required months of labor. This was not casual production. This was devotion expressed through fiber, each thread a prayer, each pass of the shuttle an act of reverence.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Facts</h4>
+                        <p>Backstrap loom woven, 30 threads/cm density. Natural dyes identified: cochineal (red) from Dactylopius coccus, indigo (blue) from Indigofera suffruticosa. Stepped fret pattern (chacana) represents the cosmic axis in Andean cosmology. Found in ritual offering bundle with spondylus shells, other textile fragments, and camelid bone. No wear patterns; folded crease lines preserved.</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Comparative Notes</h4>
+                        <p>Identical in technique and motif to Wari elite textiles recovered from Conchopata and the Castillo de Huarmey. Distinct from earlier Nasca and later Inka styles in its use of discontinuous warp and weft interlocking.</p>
+                    </div>
+                    
+                    <div class="history-section caution">
+                        <h4>Cautionary Note on Interpretation</h4>
+                        <p>The fragment is small. We extrapolate the whole from the part, but we cannot be certain. The full garment may have been different. The pattern may have been altered in ways we cannot see. We interpret with humility.</p>
+                    </div>
+                    
+                    <div class="history-section courtesy">
+                        <h4>On Display Courtesy Of</h4>
+                        <p>The Museo Nacional de Arqueologia, Antropologia e Historia del Peru, and the Wari Archaeological Research Project.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- History 6: African Healing Ritual Bowl -->
+            <div class="history-item">
+                <div class="history-image">
+                    <img src="../images/collections/healing-bowl.jpg" alt="Akan healing bowl with spiral carving">
+                </div>
+                <div class="history-content">
+                    <h3>African Healing Ritual Bowl</h3>
+                    <div class="history-metadata">
+                        <p><strong>Culture:</strong> Akan, Asante region</p>
+                        <p><strong>Date:</strong> 19th century</p>
+                        <p><strong>Material:</strong> Ironwood, medicinal resins</p>
+                        <p><strong>Dimensions:</strong> 25 cm diameter</p>
+                        <p><strong>Location Found:</strong> Healer's compound, Ghana</p>
+                    </div>
+                    
+                    <div class="history-section">
+                        <h4>Interpretation</h4>
+                        <p>This is not
