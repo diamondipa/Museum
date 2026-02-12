@@ -1,95 +1,75 @@
 // Shop functionality for Museum Souvenir Shop
 console.log("Shop page loaded");
 
-// Initialize cart from localStorage or empty array
-let cart = JSON.parse(localStorage.getItem('museumCart')) || [];
-let cartCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+// ====================== CONSTANTS ======================
+const CART_KEY = 'museumCartV1';
 
-// Update cart count in navigation
+// ====================== LOCAL STORAGE FUNCTIONS ======================
+function readCart() {
+    try { 
+        return JSON.parse(localStorage.getItem(CART_KEY)) || []; 
+    }
+    catch { 
+        return []; 
+    }
+}
+
+function writeCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
+// ====================== CART COUNT UPDATE ======================
 function updateCartCount() {
+    const cart = readCart();
+    const totalItems = cart.reduce((total, item) => total + (item.qty || 1), 0);
     const cartCountElement = document.getElementById('cart-count');
     if (cartCountElement) {
-        cartCountElement.textContent = cartCount;
+        cartCountElement.textContent = totalItems;
     }
 }
 
-// Initialize cart count on page load
-document.addEventListener('DOMContentLoaded', function() {
-    updateCartCount();
-    
-    // Set up image click events for modal
-    document.querySelectorAll('.item-image').forEach(img => {
-        img.addEventListener('click', function() {
-            const itemId = this.getAttribute('data-item');
-            openModal(itemId);
-        });
-    });
-    
-    // Set up modal close button
-    document.querySelector('.modal-close').addEventListener('click', closeModal);
-    
-    // Close modal when clicking outside
-    document.getElementById('itemModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeModal();
-        }
-    });
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-});
+// ====================== ADD TO CART FUNCTION ======================
+function addToCart(btn) {
+    const id = btn.dataset.id;
+    const name = btn.dataset.name;
+    const unitPrice = Number(btn.dataset.price);
+    const image = btn.dataset.image;
 
-// Add to cart function (Phase 1 stub)
-function addToCart(itemId) {
-    const itemElement = document.querySelector(`[data-item="${itemId}"]`);
-    if (!itemElement) return;
+    let cart = readCart();
+    const idx = cart.findIndex(it => it.id === id);
     
-    const item = {
-        id: itemId,
-        title: itemElement.getAttribute('data-title') || 'Unknown Item',
-        price: parseFloat(itemElement.getAttribute('data-price').replace('$', '')) || 0,
-        image: itemElement.getAttribute('src') || '',
-        quantity: 1
-    };
-    
-    // Check if item already in cart
-    const existingItem = cart.find(i => i.id === itemId);
-    
-    if (existingItem) {
-        existingItem.quantity = (existingItem.quantity || 1) + 1;
+    if (idx >= 0) {
+        cart[idx].qty += 1;
     } else {
-        cart.push(item);
+        cart.push({ id, name, unitPrice, qty: 1, image });
     }
     
-    // Save to localStorage
-    localStorage.setItem('museumCart', JSON.stringify(cart));
-    
-    // Update cart count
-    cartCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    writeCart(cart);
     updateCartCount();
-    
-    // Show confirmation (Phase 1 requirement)
-    alert(`Added "${item.title}" to cart!\n\nPrice: $${item.price.toFixed(2)}\n\nIn Phase 2, you'll be able to view your cart and checkout.`);
-    
-    // Visual feedback on button
-    const button = event?.target;
-    if (button && button.classList.contains('add-to-cart-btn')) {
-        const originalText = button.textContent;
-        button.textContent = '✓ Added to Cart!';
-        button.style.backgroundColor = '#0066cc';
-        
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.backgroundColor = '';
-        }, 2000);
+
+    // Update the item card's qty badge
+    const card = btn.closest('.souvenir-item');
+    if (card) {
+        const badge = card.querySelector('.qty-badge');
+        if (badge) {
+            const item = cart.find(it => it.id === id);
+            badge.textContent = item ? `Qty: ${item.qty}` : '';
+            badge.style.display = 'inline-block';
+        }
     }
+
+    // Visual feedback on button
+    const originalText = btn.textContent;
+    btn.textContent = '✓ Added!';
+    btn.style.backgroundColor = '#0066cc';
+    
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.backgroundColor = '';
+    }, 1500);
 }
 
-// Modal functionality
+// ====================== MODAL FUNCTIONALITY ======================
 function openModal(itemId) {
     const itemElement = document.querySelector(`[data-item="${itemId}"]`);
     if (!itemElement) return;
@@ -101,20 +81,18 @@ function openModal(itemId) {
     const modalDescription = document.getElementById('modalDescription');
     const modalAddToCart = document.getElementById('modalAddToCart');
     
-    // Populate modal with item data
     modalImage.src = itemElement.getAttribute('src') || '';
     modalImage.alt = itemElement.getAttribute('alt') || '';
     modalTitle.textContent = itemElement.getAttribute('data-title') || 'Unknown Item';
     modalPrice.textContent = itemElement.getAttribute('data-price') || '$0.00';
     modalDescription.textContent = itemElement.getAttribute('data-description') || 'No description available.';
     
-    // Set up add to cart button in modal
     modalAddToCart.onclick = function() {
-        addToCart(itemId);
+        const btn = document.querySelector(`button[data-id="${itemId}"]`);
+        if (btn) addToCart(btn);
         closeModal();
     };
     
-    // Show modal
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
@@ -125,31 +103,52 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
-
-// Item data for reference (not used in current implementation but available for Phase 2)
-const itemDatabase = {
-    'item001': {
-        title: 'Ammonite Fossil',
-        price: 49.99,
-        description: 'From our Geological Collection. 100 million years old. Found in Madagascar. Ammonites were prehistoric cephalopods related to modern squids and nautiluses. Perfect fossilization shows intricate chamber details.',
-        collection: 'Geological Collection'
-    },
-    'item002': {
-        title: 'Roman Terra Sigillata Fragment',
-        price: 29.99,
-        description: 'From our Classical Archaeology Collection. 1st century AD Roman pottery. Found in Pompeii excavation. Features characteristic red gloss finish with maker\'s stamp. Authentic museum-quality replica.',
-        collection: 'Classical Archaeology Collection'
-    },
-    'item003': {
-        title: 'Athenian Owl Tetradrachm Replica',
-        price: 24.99,
-        description: 'From our Numismatics Collection. Accurate reproduction of 5th century BC Athenian silver coin. Features Athena on obverse, iconic owl on reverse. Struck from pewter with antique silver finish. Includes display case.',
-        collection: 'Numismatics Collection'
-    },
-    'item004': {
-        title: 'Anasazi Pottery Fragment',
-        price: 39.99,
-        description: 'From our Southwestern Archaeology Collection. 12th century Ancestral Puebloan pottery. Found in Mesa Verde, Colorado. Black-on-white geometric design. Authentic sherd mounted in display frame with documentation.',
-        collection: 'Southwestern Archaeology Collection'
+// ====================== INITIALIZATION ======================
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    
+    // Initialize qty badges on page load
+    const cart = readCart();
+    document.querySelectorAll('.souvenir-item').forEach(card => {
+        const id = card.querySelector('.item-id')?.textContent;
+        if (id) {
+            const badge = card.querySelector('.qty-badge');
+            const item = cart.find(it => it.id === id);
+            if (badge) {
+                badge.textContent = item ? `Qty: ${item.qty}` : '';
+                badge.style.display = item ? 'inline-block' : 'none';
+            }
+        }
+    });
+    
+    // Set up image click events for modal
+    document.querySelectorAll('.item-image').forEach(img => {
+        img.addEventListener('click', function() {
+            const itemId = this.getAttribute('data-item');
+            openModal(itemId);
+        });
+    });
+    
+    // Set up modal close button
+    const closeBtn = document.querySelector('.modal-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
     }
-};
+    
+    // Close modal when clicking outside
+    const modal = document.getElementById('itemModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+});
